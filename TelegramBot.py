@@ -7,7 +7,7 @@ from telegram import ParseMode
 from telegram.ext import Updater, MessageHandler, CommandHandler
 
 
-Pattern = r'((?:https?:\/\/)?(?:www\.)?instagram\.com\/(?:p|reel)\/.+?\/)'
+Pattern = r'(?:https?:\/\/)?(?:www\.)?instagram\.com\/(?:p|reel)\/.+\/?'
 Gram = Insta()
 
 
