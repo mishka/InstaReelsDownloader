@@ -1,7 +1,7 @@
 import re
 from datetime import datetime
 
-from ReelsAPI import Insta
+from ReelsAPI import Insta, LoginError
 
 from telegram import ParseMode
 from telegram.ext import Updater, MessageHandler, CommandHandler
@@ -48,11 +48,11 @@ def processor(update, context):
     
     try:
         video = Gram.VideoURL(result.group(0))
-    except:
+    except LoginError:
         context.bot.send_message(
             chat_id = chat_id,
             reply_to_message_id = message_id,
-            text = "_I'm sorry, something went wrong while trying to find the video._",
+            text = "_I'm sorry, Instagram API doesn't let me see this post without logging in._",
             parse_mode = ParseMode.MARKDOWN
         )
         return
