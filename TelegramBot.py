@@ -7,7 +7,7 @@ from telegram import ParseMode
 from telegram.ext import Updater, MessageHandler, CommandHandler
 
 
-Pattern = r'(?:https?:\/\/)?(?:www\.)?instagram\.com\/(?:p|reel)\/.+\/?'
+Pattern = r'(?:https?:\/\/)?(?:www\.)?instagram\.com\/(?:p|tv|reel)\/.+\/?'
 Gram = Insta()
 
 
@@ -75,7 +75,7 @@ def processor(update, context):
         context.bot.send_message(
             chat_id = chat_id,
             reply_to_message_id = message_id,
-            text = "_I'm sorry, something went wrong while trying to find the video._",
+            text = f"_I'm sorry, something is wrong with telegram API at the moment.._\n\n{video}",
             parse_mode = ParseMode.MARKDOWN
         )
 
